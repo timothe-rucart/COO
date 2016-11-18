@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -14,33 +16,53 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class RadioTchat {
+public class RadioTchat extends Subject{
 
-	JFrame f1 = new JFrame();
-	JTextArea ta1 = new JTextArea("Hello World Every Body");
-	JTextField tf1 = new JTextField("valeur par default");
+	JFrame f1 = new JFrame("RadioTchat");
+	JTextArea ta1 = new JTextArea();
+	JTextField tf1 = new JTextField();
 	JButton boutton = new JButton("nouvel utilisateur");
-	
-	
-	public RadioTchat(){
+	JPanel p1 = new JPanel();
+	private RadioTchat r =this;
 
-		JPanel p1 = new JPanel();
 
-		p1.setLayout(new BorderLayout());
-		
+	public RadioTchat(){		
+
 		tf1.setPreferredSize(new Dimension(150,30)); 
 		tf1.setForeground(Color.BLUE); //met une couleur bleu à l'écriture
-		
-		
+
 		//On ne peut plus ecrire dans le text area
 		ta1.setEditable(false);
-		
+
+		p1.setLayout(new BorderLayout());
 		p1.add("Center",ta1);
 		p1.add("South",tf1);
 		p1.add("North",boutton);
 
-		f1.getContentPane().add(p1);
-						
+		tf1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ta1.setText(ta1.getText()+tf1.getText()+"\n");
+				notifyObservers();
+				tf1.setText("");
+			}
+		});
+
+
+		boutton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				attach(new ConcreteObserver(r));
+			}
+		});
+
+
+
+
+
+		f1.getContentPane().add(p1);						
 		f1.pack();
 		// setSize, mettre toujours après le pack
 		f1.setSize(300,500);
@@ -49,20 +71,16 @@ public class RadioTchat {
 		f1.setLocationRelativeTo(null);
 	}
 
-	
-	private void pause(){
-		try {
 
-		      Thread.sleep(1000);
-
-		    } catch (InterruptedException e) {
-
-		      e.printStackTrace();
-
-		    }
+	public String getField(){
+		return tf1.getText();
 	}
-	
-	public static void main(String[] args) {
-		new RadioTchat();
+
+	public void setField(String s){
+		tf1.setText(s);
+		ta1.setText(ta1.getText()+tf1.getText()+"\n");
+		notifyObservers();
+		tf1.setText("");
 	}
+
 }

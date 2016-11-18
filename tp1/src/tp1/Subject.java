@@ -6,9 +6,17 @@ public abstract class Subject {
 	
 	ArrayList<Observer> list = new ArrayList<>();
 	
-	abstract void attach(Observer o);
+	void attach(Observer o){
+		list.add(o);
+	}
 	
-	abstract void detach(Observer o);
+	void detach(Observer o){
+		list.add(o);
+	}
 	
-	abstract void notifyObservers();
+	void notifyObservers(){
+		for(Observer o : list){
+			o.update();
+		}
+	}
 }
