@@ -14,22 +14,23 @@ public class TemperatureVueCelsuis extends TemperatureVue {
 			public void actionPerformed ( ActionEvent e ) {
 				controller . augmenteDegresC ();
 			}});
+		
+		
 		addDownListener ( new ActionListener () {
 			public void actionPerformed ( ActionEvent e ) {
 				controller . diminueDegresC ();
 			}});
+		
+		
 		addDisplayListener ( new ActionListener () {
 			public void actionPerformed ( ActionEvent e ) {
 				double tempC = getDisplay ();
 				controller . fixeDegresC ( tempC );
 			}});
 	}
+	
+	
 	public void update ( Observable s , Object o ) {
 		setDisplay ( " " + model (). getC ());
-	}
-	@Override
-	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
 	}
 }
