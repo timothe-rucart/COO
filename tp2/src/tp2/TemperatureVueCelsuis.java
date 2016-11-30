@@ -7,18 +7,19 @@ import java.util.Observable;
 public class TemperatureVueCelsuis extends TemperatureVue {
 	
 	public TemperatureVueCelsuis ( TemperatureModel modele ,TemperatureController controleur , int posX , int posY ) {
-		super ( " Temperature ␣ Celsuis " , modele , controleur , posX , posY );
-		setDisplay ( " " + model . getC ());
+		
+		super ( " Temperature Celsuis " , modele , controleur , posX , posY );
+		setDisplay ( " " + model.getC ());
 		
 		addUpListener ( new ActionListener () {
 			public void actionPerformed ( ActionEvent e ) {
-				controller . augmenteDegresC ();
+				controller.augmenteDegresC ();
 			}});
 		
 		
 		addDownListener ( new ActionListener () {
 			public void actionPerformed ( ActionEvent e ) {
-				controller . diminueDegresC ();
+				controller.diminueDegresC ();
 			}});
 		
 		

@@ -41,7 +41,7 @@ public abstract class TemperatureVue implements Observer {
 	
 	
 	public void setDisplay ( String s ) {
-		display . setText ( s );
+		display.setText ( s );
 	}
 	
 	
@@ -65,9 +65,9 @@ public abstract class TemperatureVue implements Observer {
 		return result ;
 	}
 	
-	public void addDisplayListener ( ActionListener a ){ display . addActionListener ( a );}
-	public void addUpListener ( ActionListener a ){ upJButton . addActionListener ( a );}
-	public void addDownListener ( ActionListener a ){ downJButton . addActionListener ( a );}
+	public void addDisplayListener ( ActionListener a ){ display.addActionListener ( a );}
+	public void addUpListener ( ActionListener a ){ upJButton.addActionListener ( a );}
+	public void addDownListener ( ActionListener a ){ downJButton.addActionListener ( a );}
 	
 	protected TemperatureModel model (){
 		return model ;

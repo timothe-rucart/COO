@@ -1,6 +1,7 @@
 package tp2;
 
 public class TemperatureController {
+	
 	private TemperatureModel model ;
 	private TemperatureVue view = null ;
 	private ModifieTemperature modtemp = new ModifieTemperaturePlus1 ();
@@ -12,26 +13,26 @@ public class TemperatureController {
 	
 	
 	public void augmenteDegresC (){
-		model . setC ( modtemp . augmenteDegres ( model . getC ()));
-		control ();
+		model.setC ( modtemp . augmenteDegres ( model . getC ()));
+		control();
 	}
 	
 	
 	public void diminueDegresC (){
-		model . setC ( modtemp . diminueDegres ( model . getC ()));
-		control ();
+		model.setC ( modtemp . diminueDegres ( model . getC ()));
+		control();
 	}
 	
 	
 	public void fixeDegresC ( double tempC ){
-		model . setC ( tempC );
-		control ();
+		model.setC ( tempC );
+		control();
 	}
 	
 	
 	public void augmenteDegresF (){
-		model . setF ( modtemp . augmenteDegres ( model . getF ()));
-		control ();
+		model.setF ( modtemp . augmenteDegres ( model . getF ()));
+		control();
 	}
 	public void diminueDegresF (){
 		model . setF ( modtemp . diminueDegres ( model . getF ()));
