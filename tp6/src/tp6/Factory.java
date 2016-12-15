@@ -24,18 +24,19 @@ public class Factory {
 		// si une gaufre ou une crepe a ete cree
 		if( d != null){
 			if(dessert.contains("chantilly")){
-				d.setLibelle("chantilly");
+				d = new Chantilly(d);
 			}
 			
 			if(dessert.contains("chocolat")){
 				
 				//si il ne contient pas de chantilly
 				if(d.getLibelle() == null){
-					d.setLibelle("chocolat");
+					d = new Chocolat(d);
+					
 				}
 				//si le dessert contient déja de la chantilly
 				else{
-					d.setLibelle(d.getLibelle()+" & chocolat");
+					d= new Chocolat(d);
 				}
 			}
 		}

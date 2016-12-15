@@ -17,7 +17,7 @@ public class Dessert {
 	public double getPrix(){ return prix; }
 	
 	public String toString(){
-		return "libelle : "+libelle+", prix : "+prix;
+		return "libelle : "+this.getLibelle()+", prix : "+this.getPrix();
 	}
 	
 }
